@@ -1,0 +1,11 @@
+{
+  "fmt": {
+    "lineWidth": 119,
+    "semiColons": false,
+    "singleQuote": true
+  },
+  "imports": {
+    "@/": "./"
+  },
+  "lock": false
+}
