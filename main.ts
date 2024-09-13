@@ -4,10 +4,11 @@ let count = 0
 
 Deno.serve((req, { remoteAddr }) => {
   const url = new URL(req.url)
-  if (url.pathname === '/') {
-    let html = Deno.readTextFileSync('index.html')
+  if (!url.pathname.includes('.')) {
+    let html = Deno.readTextFileSync('assets/index.html')
     const toReplace: Record<string, string> = {
       lang: acceptsLanguages(req, 'zh', 'en') ?? 'en',
+      url: req.url,
       count: `${++count}`,
       remoteAddr: `${remoteAddr.hostname}:${remoteAddr.port}`,
     }
